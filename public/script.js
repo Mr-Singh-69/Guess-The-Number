@@ -16,7 +16,7 @@ submitGuessButton.addEventListener('click', function () {
     }
 
     // Make a POST request to the backend
-    fetch('http://localhost:3000/guess', {
+    fetch('https://guess-the-number-4f6c.onrender.com/guess', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -40,7 +40,7 @@ submitGuessButton.addEventListener('click', function () {
 
 // Fetch and display the leaderboard
 function getLeaderboard() {
-    fetch('http://localhost:3000/leaderboard')
+    fetch('https://guess-the-number-4f6c.onrender.com/leaderboard')
         .then(response => response.json())
         .then(leaderboard => {
             leaderboardEl.innerHTML = '';
