@@ -3,23 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guess the Number Game by Navdeep Singh</title>
+    <title>Guess the Number Game</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="game-container">
-        <h1>A part of the "My JS Games" library by Navdeep Singh</h1>
-        <h1>Guess the Number</h1>
-        <p>Guess a number between 1 and 100</p>
-        <input type="number" id="guessInput" placeholder="Enter your guess" min="1" max="100">
-        <button id="submitGuessButton">Submit Guess</button>
-        <p id="message"></p>
-        <p>Attempts: <span id="attempts">0</span></p>
-        <h2>Leaderboard</h2>
-        <ul id="leaderboard"></ul>
+    <div class="pulse-container">
+        <div class="pulse greenpulse" id="pulse1"></div>
+        <div class="pulse redpulse" id="pulse2"></div>
+        <div class="pulse bluepulse" id="pulse3"></div>
+        <div class="pulse yellowpulse" id="pulse4"></div>
     </div>
+    <div class="game-container">
+        <h1>Guess the Number Game</h1>
+        <h2>Guess the Number Game</h2>
+        <div id="name-section">
+            <label for="player-name">Enter your name:</label>
+            <input type="text" id="player-name" placeholder="Your name" />
+            <button id="start-btn">Start Game</button>
+        </div>
+        
+        <div id="game-section" class="hidden">
+            <label for="guess-input">Guess a number between 1 and 100:</label>
+            <input type="number" id="guess-input" />
+            <button id="submit-btn">Submit Guess</button>
+            <button id="reset-btn" class="hidden">Start New Game</button>
+            <div id="feedback"></div>
+            <h2>Leaderboard</h2>
+            <table id="leaderboard">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Player</th>
+                        <th>Attempts</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Leaderboard rows will be added here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
-
 
