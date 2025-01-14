@@ -6,23 +6,20 @@ const fs = require('fs');
 const app = express();
 const PORT = 3000;
 
-app.use(cors());  // Enable CORS for the frontend to talk to the backend
+app.use(cors());  
 app.use(bodyParser.json());
 app.use(express.static('public'));
 
-// Game Variables
 let secretNumber = Math.floor(Math.random() * 100) + 1;
 let attempts = 0;
 const leaderboardFile = 'leaderboard.json';
 
-// Initialize leaderboard file if it doesn't exist
 if (!fs.existsSync(leaderboardFile)) {
   fs.writeFileSync(leaderboardFile, JSON.stringify([]));
 }
 
-// Endpoint to handle guesses
 app.post('/guess', (req, res) => {
-  console.log('Received request:', req.body); // Log incoming request data
+  console.log('Received request:', req.body);
   const { guess, playerName } = req.body;
   attempts++;
 
@@ -45,7 +42,6 @@ app.post('/guess', (req, res) => {
   }
 });
 
-// Endpoint to get leaderboard
 app.get('/leaderboard', (req, res) => {
   const leaderboard = JSON.parse(fs.readFileSync(leaderboardFile));
   res.json(leaderboard);
